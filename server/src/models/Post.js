@@ -29,7 +29,7 @@ const postSchema = new mongoose.Schema(
             required: true,
         },
         status:{
-            type: Date,
+            type: String,
             enum: ['draft', 'published'],
             default: 'draft',
         },
