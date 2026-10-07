@@ -28,6 +28,12 @@ const postSchema = new mongoose.Schema(
             // reference, not a copied string — rename a category once, every post reflects it
             required: true,
         },
+        author:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+
+        },
         status:{
             type: String,
             enum: ['draft', 'published'],

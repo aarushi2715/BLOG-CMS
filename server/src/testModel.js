@@ -12,7 +12,7 @@ const testModel = async()=>{
         await connectDB();
         const user  = await User.create({
             name: "sdnsmda",
-            email: "test2@gmail.com",
+            email: "test5@gmail.com",
             password: "dfjidnrf",
             role: 'admin',
         });
@@ -21,8 +21,8 @@ const testModel = async()=>{
 
             // 2. Create a Category
           const category = await Category.create({
-              name: "Technology1",
-              slug: "technology1",
+              name: "Technology3",
+              slug: "technology3",
 
            });
 
@@ -32,10 +32,11 @@ const testModel = async()=>{
             // 3. Create a Post
             const post = await Post.create({
             title: "My First Post",
-            slug: "my-first-post1",
+            slug: "my-first-post2",
             excerpt: "sdjfidsfeklsfnesklfniojfcodesojdfeospjdfwpdpnxclkdsjfojfopeke[",
             content: "This is a test post.",
             category: category._id,
+            author: user._id,
             status: "draft",
             publishedAt: "2026.01.01",
           
