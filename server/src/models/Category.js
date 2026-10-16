@@ -5,6 +5,7 @@ const categorySchema = new mongoose.Schema({
         required: true,
         unique: true,
         trim: true,
+        minlength: 1,
     },
     slug:{
         type: String,
