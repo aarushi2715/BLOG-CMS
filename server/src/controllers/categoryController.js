@@ -29,7 +29,7 @@ export const createCategory = async (req, res)=>{
 
 
     }catch(error){
-        res.status(400).json({
+        res.status(500).json({
             message: error.message,
         })
 
@@ -92,8 +92,7 @@ export const updateCategory = async(req, res)=>{
 
 
         // 3. Generate the new slug
-        console.log(req.body);
-        console.log(name);
+        
         if (!name || !name.trim()) {
             return res.status(400).json({
             message: "Category name is required"
