@@ -1,24 +1,30 @@
-
 import api from './axiosInstance';
 
-export const fetchPosts = (page = 1, category = '') =>
-  api.get(`/posts?page=${page}${category ? `&category=${category}` : ''}`);
+// Public paginated & filtered posts list
+export const fetchPosts = (page = 1, category = '') => {
+  const params = { page };
+  if (category) {
+    params.category = category;
+  }
+  return api.get('/posts', { params });
+};
 
-
-//public articles use slug for accessing or searching them 
-//editing and deleting the articles are done by id 
-
+// Public article lookup by slug
 export const fetchPostBySlug = (slug) =>
-  api.get(`/posts/${slug}`);
+  api.get(`/posts/${encodeURIComponent(slug)}`);
 
+// Admin view of all posts
 export const fetchAllPostsAdmin = () =>
   api.get('/posts/admin/all');
 
+// Create a new post
 export const createPost = (data) =>
   api.post('/posts', data);
 
+// Update an existing post by ID
 export const updatePost = (id, data) =>
-  api.put(`/posts/${id}`, data);
+  api.put(`/posts/${encodeURIComponent(id)}`, data);
 
+// Delete a post by ID
 export const deletePost = (id) =>
-  api.delete(`/posts/${id}`);
+  api.delete(`/posts/${encodeURIComponent(id)}`);
