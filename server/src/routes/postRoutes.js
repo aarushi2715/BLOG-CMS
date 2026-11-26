@@ -14,6 +14,7 @@ const router = express.Router();
 router.post("/", protect, createPost);
 //we dont need an id for accessign here because we are creating 
 //only need that for update and delete
+//THESE ARE THE ENDPOITNS 
 router.get("/", getAllPosts);
 router.get("/:slug", getOnePost);
 router.get("/admin/all",protect, getAllPostsAdmin);

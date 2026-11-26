@@ -79,6 +79,8 @@ export const createPost = async(req, res)=>{
     }
 };
 
+//pagination and filter 
+
 export const getAllPosts  = async(req, res)=>{
     try{
        // Values coming from ?page=1&limit=6&category=...
